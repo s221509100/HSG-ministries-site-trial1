@@ -1,33 +1,52 @@
-
-  (function ($) {
+/*=============================================================
+      Authour URI: www.binarytheme.com
+      License: Commons Attribution 3.0
   
-  "use strict";
+      http://creativecommons.org/licenses/by/3.0/
+  
+      100% To use For Personal And Commercial Use.
+      IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+     
+      ========================================================  */
 
-    // MENU
-    $('.navbar-collapse a').on('click',function(){
-      $(".navbar-collapse").collapse('hide');
+
+
+jQuery(function ($) {
+
+    /*==========================================
+ CUSTOM SCRIPTS 
+  =====================================================*/
+    //  LOADING SCRIPTS FUNCTION
+    $(window).load(function () {
+        $(".loader").fadeOut("slow");
     });
-    
-    // CUSTOM LINK
-    $('.smoothscroll').click(function(){
-      var el = $(this).attr('href');
-      var elWrapped = $(el);
-      var header_height = $('.navbar').height();
-  
-      scrollToDiv(elWrapped,header_height);
-      return false;
-  
-      function scrollToDiv(element,navheight){
-        var offset = element.offset();
-        var offsetTop = offset.top;
-        var totalScroll = offsetTop-navheight;
-  
-        $('body,html').animate({
-        scrollTop: totalScroll
-        }, 300);
-      }
+      
+    // PRETTYPHOTO FUNCTION 
+
+    $("a.preview").prettyPhoto({
+        social_tools: false
     });
-  
-  })(window.jQuery);
+
+    //ISOTOPE FUNCTION - FILTER PORTFOLIO FUNCTION
+    $(window).load(function () {
+        $portfolio = $('.portfolio-items');
+        $portfolio.isotope({
+            itemSelector: 'li',
+            layoutMode: 'fitRows'
+        });
+        $portfolio_selectors = $('.portfolio-filter >li>a');
+        $portfolio_selectors.on('click', function () {
+            $portfolio_selectors.removeClass('active');
+            $(this).addClass('active');
+            var selector = $(this).attr('data-filter');
+            $portfolio.isotope({ filter: selector });
+            return false;
+        });
+    });
 
 
+    /*==========================================
+    WRITE  YOUR  SCRIPTS BELOW
+    =====================================================*/
+
+});
