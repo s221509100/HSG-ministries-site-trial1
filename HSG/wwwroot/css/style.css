@@ -97,9 +97,8 @@ p {
    ========================================================================== */
 
 #header-section {
-	background: url(../img/1.jpg) no-repeat center top;
-	margin-top: -20px;
-	padding-top:20px;
+	margin-top: 0px;
+	padding-top:0px;
 	text-align:center;
 	background-position: center center;
 	min-height: 300px;
